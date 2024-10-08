@@ -7,9 +7,9 @@ export interface IRodada {
     nome: string;
 }
 
-interface IJogador {
+export interface IJogador {
     nome: string;
-    habilidade: number;
+    skill: number;
     position: "ala" | "pivô" | "fixo" | "goleiro";
 }
 
@@ -17,23 +17,23 @@ export interface ITime {
     time: IJogador[];
 }
 
-export const initialValue = JSON.stringify([
-    { nome: "Jogador 1", habilidade: 90, position: "goleiro" },
-    { nome: "Jogador 2", habilidade: 85, position: "goleiro" },
-    { nome: "Jogador 3", habilidade: 88, position: "goleiro" },
-    { nome: "Jogador 4", habilidade: 75, position: "ala" },
-    { nome: "Jogador 5", habilidade: 80, position: "ala" },
-    { nome: "Jogador 6", habilidade: 78, position: "ala" },
-    { nome: "Jogador 7", habilidade: 82, position: "ala" },
-    { nome: "Jogador 8", habilidade: 79, position: "pivô" },
-    { nome: "Jogador 9", habilidade: 77, position: "pivô" },
-    { nome: "Jogador 10", habilidade: 81, position: "fixo" },
-    { nome: "Jogador 11", habilidade: 73, position: "fixo" },
-    { nome: "Jogador 12", habilidade: 84, position: "ala" },
-    { nome: "Jogador 13", habilidade: 76, position: "fixo" },
-    { nome: "Jogador 14", habilidade: 80, position: "ala" },
-    { nome: "Jogador 15", habilidade: 70, position: "fixo" },
-]);
+export const initialValue: IJogador[] = [
+    { nome: "Jogador 1", skill: 90, position: "goleiro" },
+    { nome: "Jogador 2", skill: 85, position: "goleiro" },
+    { nome: "Jogador 3", skill: 88, position: "goleiro" },
+    { nome: "Jogador 4", skill: 75, position: "ala" },
+    { nome: "Jogador 5", skill: 80, position: "ala" },
+    { nome: "Jogador 6", skill: 78, position: "ala" },
+    { nome: "Jogador 7", skill: 82, position: "ala" },
+    { nome: "Jogador 8", skill: 79, position: "pivô" },
+    { nome: "Jogador 9", skill: 77, position: "pivô" },
+    { nome: "Jogador 10", skill: 81, position: "fixo" },
+    { nome: "Jogador 11", skill: 73, position: "fixo" },
+    { nome: "Jogador 12", skill: 84, position: "ala" },
+    { nome: "Jogador 13", skill: 76, position: "fixo" },
+    { nome: "Jogador 14", skill: 80, position: "ala" },
+    { nome: "Jogador 15", skill: 70, position: "fixo" },
+];
 
 function shuffle<T>(array: T[]): T[] {
     for (let i = array.length - 1; i > 0; i--) {
@@ -81,16 +81,14 @@ export function sortearTimes(jogadores: IJogador[]): ITime[] {
     }
 
     const restantes = [...alas, ...fixos];
-    restantes.sort((a, b) => b.habilidade - a.habilidade);
-    function totalHabilidade(time: IJogador[]): number {
-        return time.reduce((acc, jogador) => acc + jogador.habilidade, 0);
+    restantes.sort((a, b) => b.skill - a.skill);
+    function totalskill(time: IJogador[]): number {
+        return time.reduce((acc, jogador) => acc + jogador.skill, 0);
     }
 
     for (const jogador of restantes) {
         const timeMaisFraco = times.reduce((prev, curr) =>
-            totalHabilidade(prev.time) < totalHabilidade(curr.time)
-                ? prev
-                : curr
+            totalskill(prev.time) < totalskill(curr.time) ? prev : curr
         );
         timeMaisFraco.time.push(jogador);
     }
