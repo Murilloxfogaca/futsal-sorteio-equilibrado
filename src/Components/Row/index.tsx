@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { IJogador } from "../../Resolver";
 import { ChangeEvent, useState } from "react";
+import { _stack, _textField, width100 } from "./styled";
 
 interface IJogadorExtend extends IJogador {
     setPlayer: (jogador: IJogador) => void;
@@ -47,16 +48,7 @@ function Row(props: IJogadorExtend) {
     };
 
     return (
-        <Stack
-            direction="row"
-            spacing={1}
-            sx={{
-                width: "100%",
-                marginBottom: "1rem",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
+        <Stack direction="row" spacing={1} sx={_stack}>
             <Box>
                 <TextField
                     id="name-basic"
@@ -68,7 +60,7 @@ function Row(props: IJogadorExtend) {
             </Box>
             <Box>
                 <TextField
-                    sx={{ minWidth: "70px" }}
+                    sx={_textField}
                     id="skills-basic"
                     label="Habilidade do jogador"
                     variant="outlined"
@@ -80,7 +72,6 @@ function Row(props: IJogadorExtend) {
                             shrink: true,
                         },
                     }}
-                    style={{ width: "100%" }}
                     onChange={(e) => handleChangeSkill(e)}
                 />
             </Box>
@@ -90,7 +81,7 @@ function Row(props: IJogadorExtend) {
                         value={"Goleiro"}
                         type="text"
                         disabled
-                        style={{ width: "100%" }}
+                        style={width100}
                     />
                 ) : (
                     <FormControl fullWidth>

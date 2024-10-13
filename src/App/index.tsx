@@ -2,6 +2,15 @@ import { Box, Button, Container, Stack } from "@mui/material";
 import { useState } from "react";
 import Row from "../Components/Row";
 import { IJogador, initialValue, ITime, sortearTimes } from "../Resolver";
+import {
+    _boxIntern,
+    _box,
+    paragraphMargin,
+    stackSx,
+    marginBottom,
+    marginO,
+    _button,
+} from "./styled";
 
 function App() {
     const [shuffle, setShuffle] = useState<IJogador[]>(initialValue);
@@ -12,11 +21,17 @@ function App() {
         setShuffleIsActive(sortearTimes(shuffle));
     };
 
-    const boxSx = {
-        width: "400px",
-        border: "1px solid #ccc",
-        borderRadius: "1rem",
-        padding: "1rem",
+    const teamsDOM = (teams: ITime[]): JSX.Element[] => {
+        return teams.map((team: { time: IJogador[] }, index: number) => (
+            <div key={index} style={marginBottom}>
+                <h3 style={marginO}>Time {index + 1}</h3>
+                {team.time.map((player, playerIndex) => (
+                    <p style={paragraphMargin} key={playerIndex}>
+                        {player.nome} ( {player.position} )
+                    </p>
+                ))}
+            </div>
+        ));
     };
 
     const updatePlayer = (index: number, playersUpdated: IJogador) => {
@@ -29,40 +44,26 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Container>
-                    <Stack
-                        direction="row"
-                        spacing={1}
-                        sx={{
-                            width: "100%",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            flexWrap: "wrap",
-                            gap: "1rem",
-                            alignItems: "start",
-                        }}
-                    >
-                        <Box sx={{ width: "440px" }}>
-                            <Box sx={boxSx}>
-                                {shuffleIsActive
-                                    ? JSON.stringify(shuffleIsActive)
-                                    : "-"}
+                    <Stack direction="row" spacing={1} sx={stackSx}>
+                        <Box sx={_boxIntern}>
+                            <Box sx={_box}>
+                                {shuffleIsActive ? (
+                                    <>{teamsDOM(shuffleIsActive)}</>
+                                ) : (
+                                    "Clique em Sortear"
+                                )}
+
+                                <Button
+                                    sx={_button}
+                                    onClick={() => getSortear()}
+                                >
+                                    Sortear time
+                                </Button>
                             </Box>
-                            <Button
-                                sx={{
-                                    backgroundColor: "#000",
-                                    color: "#ccc",
-                                    fontWeight: "bold",
-                                    width: "100%",
-                                    marginTop: "1rem",
-                                    marginBottom: "1rem",
-                                }}
-                                onClick={() => getSortear()}
-                            >
-                                Sortear time
-                            </Button>
                         </Box>
-                        <Box sx={{ width: "440px" }}>
-                            <Box sx={boxSx}>
+
+                        <Box sx={_box}>
+                            <Box sx={_boxIntern}>
                                 {initialValue.map((item, index) => (
                                     <Row
                                         {...item}

@@ -33,6 +33,9 @@ export const initialValue: IJogador[] = [
     { nome: "Jogador 13", skill: 76, position: "fixo" },
     { nome: "Jogador 14", skill: 80, position: "ala" },
     { nome: "Jogador 15", skill: 70, position: "fixo" },
+    { nome: "Jogador 16", skill: 80, position: "ala" },
+    { nome: "Jogador 17", skill: 80, position: "ala" },
+    { nome: "Jogador 18", skill: 80, position: "ala" },
 ];
 
 function shuffle<T>(array: T[]): T[] {
