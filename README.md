@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Futsal Team Sorter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto tem como objetivo facilitar o sorteio de times para um time de futsal. O aplicativo permite aos usuários cadastrar jogadores e realizar sorteios automáticos para formar times de maneira rápida e justa.
 
-## Available Scripts
+## Tecnologias Usadas
 
-In the project directory, you can run:
+- **Next.js** - Framework React para renderização do lado do servidor e desenvolvimento rápido.
+- **React** - Biblioteca para construir interfaces de usuário interativas.
+- **Tailwind CSS** - Framework de CSS utilitário para um design rápido e responsivo.
+- **Vercel** - Plataforma de deploy contínuo para aplicativos Next.js (opcional, mas recomendado para deploy).
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Cadastro de jogadores.
+- Sortear os jogadores em times balanceados.
+- Interface simples e intuitiva.
+- Responsividade para uso em dispositivos móveis.
+  
+## Como Rodar o Projeto Localmente
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. Clonar o repositório
 
-### `npm test`
+git clone https://github.com/seu-usuario/futsal-team-sorter.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O projeto estará disponível em http://localhost:3000.
+Como Usar
 
-### `npm run build`
+    Acesse o aplicativo em seu navegador.
+    Adicione os jogadores no formulário disponível na tela inicial.
+    Após cadastrar todos os jogadores, clique no botão Sortear Times.
+    O aplicativo irá automaticamente dividir os jogadores em dois times equilibrados.
+    Caso deseje realizar outro sorteio, basta clicar no botão novamente.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Como Contribuir
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Faça o fork deste repositório.
+    Crie uma branch para sua feature (git checkout -b feature/novo-recurso).
+    Faça o commit das suas alterações (git commit -am 'Adiciona novo recurso').
+    Faça o push para sua branch (git push origin feature/novo-recurso).
+    Abra um pull request.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Licença
 
-### `npm run eject`
+Este projeto está licenciado sob a licença MIT - consulte o arquivo LICENSE para mais detalhes.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Você pode copiar e colar esse conteúdo diretamente em seu arquivo `README.md` no seu proj
